@@ -48,12 +48,10 @@ public class Ex02 {
 
         try{
             con = DriverManager.getConnection(url, user, password);
-            BEGIN;
             sql = "INSERT INTO members(name,birth_day,gender,color_id) values('大野智','1980-11-26','男',1),('櫻井翔','1982-1-25','男',2),('相葉雅紀','1982-12-24','男',3),('二宮和也','1983-6-17','男',4),('松本潤','1983-8-30','男',5)";
             pstmt = con.prepareStatement(sql);
             int numOfUpdate = pstmt.executeUpdate();
             System.out.println(numOfUpdate+"件のデータを操作しました");
-            COMMIT;
         }catch(SQLException ex){
             System.err.println("SQL関連の例外が発生しました");
             System.err.println("発生したSQLは「"+sql+"」です");
